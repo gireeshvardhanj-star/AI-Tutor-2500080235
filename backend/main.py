@@ -1,18 +1,29 @@
 from fastapi import FastAPI
 
-klu = FastAPI(title="AI-Tutor", 
-              description="An AI-Tutor Pbl project.",
-                version="1.0.0")
-
+klu = FastAPI(title="AI Tutor",
+              description="AI Tutor PBL Project",
+              version="1.0.0")
 
 @klu.get("/")
 def home():
-    return {"message": "Welcome to the AI-Tutor project!"}
+    return {"message":"Welcome to AI Tutor Project"}
 
 @klu.get("/demo")
 def demo():
-    return {"message": "KL university."}
+    return {"message":"KL university"}
 
-@klu.get("/ask question")
-def ask_question():
-    return {"message": "What is  LLM?","ANSWER":"LLM stands for Large Language Model. It is a type of artificial intelligence model that is trained on vast amounts of text data to understand and generate human-like language. LLMs can perform various natural language processing tasks, such as text generation, translation, summarization, and question-answering."}
+@klu.get("/askquestion")
+def ask():
+    return {"message":"What is LLM","Answer":"Large Language Model"}
+
+@klu.get("/student")
+def student():
+    return {"id":1,"name":"Ram","gender":"male","course":"DSA"}
+
+@klu.get("/students")
+def getstudents():
+    return [
+            {"id":1,"name":"Ram","gender":"male","course":"DSA"},
+            {"id":2,"name":"Klu","gender":"male","course":"DSA"},
+            {"id":3,"name":"Seetha","gender":"female","course":"DSA"}
+            ]
